@@ -1,5 +1,6 @@
-// libs/api.ts
-export async function getHdcpList() {
+import { HdcpPlayer } from './types';
+
+export async function getHdcpList(): Promise<HdcpPlayer[]> {
   const res = await fetch(
     `https://${process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN}.microcms.io/api/v1/hdcp`,
     {

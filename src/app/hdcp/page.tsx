@@ -1,5 +1,6 @@
 import styles from './HdcpPage.module.css';
-import { getHdcpList } from '@/libs/api'; // ファイルあるならこう書く
+import { getHdcpList } from '@/libs/api';
+import { HdcpPlayer } from '@/libs/types';
 
 export default async function HdcpPage() {
   const players = await getHdcpList();
@@ -16,7 +17,7 @@ export default async function HdcpPage() {
           </tr>
         </thead>
         <tbody>
-          {players.map((player: any) => (
+          {players.map((player: HdcpPlayer) => (
             <tr key={player.id} className={styles.trHover}>
               <td className={styles.td}>{player.name}</td>
               <td className={styles.td}>{player.kana}</td>

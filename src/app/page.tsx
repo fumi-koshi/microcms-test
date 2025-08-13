@@ -4,8 +4,8 @@ export default async function Home() {
   const { data, error } = await supabase.from("profiles").select("*");
 
   if (error) {
-    console.error(error);
-    return <div>エラーが発生しました</div>;
+    console.error("Supabase error:", error);
+    return <div>エラーが発生しました: {error.message}</div>;
   }
 
   return (
